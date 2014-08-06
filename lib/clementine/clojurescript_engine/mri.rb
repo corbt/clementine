@@ -17,7 +17,7 @@ module Clementine
     def compile
       @options = default_opts.merge(Clementine.options) if Clementine.options
       begin
-        cmd = %Q{#{command} #{@file} '#{convert_options(@options)}' 2>&1}
+        cmd = %Q{#{command} '#{@file}' '#{convert_options(@options)}' 2>&1}
         result = `#{cmd}`
       rescue Exception
         raise Error, "compression failed: #{result || $!}"
